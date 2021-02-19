@@ -67,7 +67,7 @@ If you want to individually get rid of specific variables you can use `unset()`.
 
 However, getting rid of our session variables in that way is not very effective. To clear your session array and unset every variable, you would need to use `session_unset()`. Calling this function applies it to all parts of the `$_SESSION` array and empties it. This is a great option if you only want to clear your array, but it will not destroy the entire session for you.
 
-![Clear Session Array](clearsession.png)
+![Clear Session Array](clearsession1.png)
 
 To destroy the session data the function `session_destroy()` is used. This does exactly what it says: it destroys the data stored in the session completely. The session is ended but if you start up a session again, those variables will still be there! This function destroys the session but does not clear the variables out of the array.
 
