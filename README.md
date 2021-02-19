@@ -6,7 +6,7 @@ So what exactly is a PHP session? PHP sessions have to do with memory storage. I
 In more technical terms, every time a computer connects to the internet it is connected to a server. The browser open on the computer sends information requests to the server, and the server responds with the information. **Stateless** communication is the basic communication between the browser and the server. The browser sends a request, the server responds, without caring about the specifics of who the computer is. With a PHP session, a browser sends a request to the server, and the server responds with the requested information, and a **session ID** which is a unique identifier. In every single communication that follows, the session ID is passed along with the information. This is how the server knows it is coming from the same browser. Other information is stored on the server and can be accessed by the browser because it has that session ID that it passes back and forth. If you're having trouble understanding why we use PHP sessions and how they work, here is a great [video explanation](https://www.linkedin.com/learning/php-managing-persistent-sessions/how-php-sessions-work)!
 
 # Opening a PHP Session
-In order to begin storing variables, you must start the session. This can be achieved through a simple start function! We'll put it at the beginning of our `example.php` page.
+Let's create two `.php` files and call them `example.php` and `example2.php`. In order to begin storing session variables in these files, you must start the session. This can be achieved through a simple start function! We'll put it at the beginning of our `example.php` page.
 
 ![Start Function](start.png)
 
