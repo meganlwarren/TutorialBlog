@@ -78,20 +78,19 @@ In order to completely clear out information and get a fresh new session, it is 
 
 There are some situations in which you would want your session data to be persistent, but that requires additional security measures that we won't cover in this tutorial. 
 
+# Additional Resources
+
+Included below are links to a few tutorials and other resources that I found helpful in understanding PHP sessions and how they work, as well as how to set them up.
 
 
+[TutorialRepublic on PHP sessions](https://www.tutorialrepublic.com/php-tutorial/php-sessions.php#:~:text=To%20begin%20a%20new%20session,simply%20starts%20a%20new%20session.) : Fantastic additional tutorial to help you understand how to set up PHP sessions.
 
+[w3schools: PHP sessions](https://www.w3schools.com/php/php_sessions.asp) : Information from w3schools on PHP sessions.
 
+[ThoughtCo on PHP](https://www.thoughtco.com/basic-php-sessions-2693797) : More information to help in understanding how PHP sessions work.
 
+[php.net: $_SESSION in depth](https://www.php.net/manual/en/reserved.variables.session.php) : More information about the `$_SESSION` array.
 
-https://www.tutorialrepublic.com/php-tutorial/php-sessions.php#:~:text=To%20begin%20a%20new%20session,simply%20starts%20a%20new%20session.
+[php.net: `session_unset()` in depth](https://www.php.net/manual/en/function.session-unset.php) : More information about `session_unset()`.
 
-https://www.w3schools.com/php/php_sessions.asp
-
-https://www.thoughtco.com/basic-php-sessions-2693797
-
-https://www.php.net/manual/en/reserved.variables.session.php
-
-https://www.php.net/manual/en/function.session-unset.php
-
-https://www.php.net/manual/en/function.session-destroy.php#:~:text=session_destroy()%20destroys%20all%20of,or%20unset%20the%20session%20cookie.&text=Cleanup%20%24_SESSION%20array%20rather,ID%20must%20also%20be%20unset.
+[php.net: `session_destroy()` in depth](https://www.php.net/manual/en/function.session-destroy.php#:~:text=session_destroy()%20destroys%20all%20of,or%20unset%20the%20session%20cookie.&text=Cleanup%20%24_SESSION%20array%20rather,ID%20must%20also%20be%20unset.) : More information about `session_destroy`.
