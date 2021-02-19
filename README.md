@@ -45,7 +45,7 @@ Now hang on! Those variables haven't even been declared before in `example2.php`
 
 Good question! They are session variables, so they exist with the session. Since the session was opened in `example.php` and the variables were declared there, the variables exist in the session (remember the browser-term memory). A session was opened at the beginning of `example2.php` and the `session_start()` function looked back to see if a session already exists. Since it does, those session variables are now available to be used! So `example2.php` in a sense recreates and continues using the session that was created in `example.php`. Because of that, there is no need to recreate those session variables!
 
-So how are these variables actually stored? I said at the beginning that we would call the `$_SESSION["yourVariable"]` chunk our "key" and the `"value"` chunk our value. Session variables are stored in the session array: `$_SESSION[]`. The name `"yourVariable"` is the key, or address of the value (hint: `"value"`) that we are looking for.
+So how are these variables actually stored? I said at the beginning that we would call the `$_SESSION["yourVariable"]` chunk our key and the `"value"` chunk our value. Session variables are stored in the session array: `$_SESSION[]`. The name `"yourVariable"` is the key, or address of the value (hint: `"value"`) that we are looking for.
 
 When we declared `$_SESSION["favSeason"] = "summer"` in our `example.php` we created a key `"favSeason"` and set the value associated to it to `"summer"`. Then we did the same thing for `$_SESSION["favActivity"] = "swimming"`. This array lasts as long as the session lasts, and can be used on any page within our site as long as the browser is open.
 
@@ -58,21 +58,25 @@ You can also print out the entire session array by using the command `print_r($_
 This is a good way to debug your code and make sure that your session array contains what you want it to contain!
 
 # Ending Your Session
-Because your session only lasts as long as the browser is open it will eventually end. But the information stored in the session can stick around for a little longer, and it isn't immediately destroyed upon closing the browser. For example, if your website requires a login page with a username and password, you'll need that username and password to be stored in the session array so that you can access all parts of the website. But if you exit out of the browser without removing that important information from the session array, that information could be at risk since it's still lingering there for a while. That's why there are a couple different methods to getting rid of part or all of the session variables.
+Because your session only lasts as long as the browser is open it will eventually end. But the information stored in the session can stick around for a little longer, and it isn't immediately destroyed upon closing the browser. This is important because if, for example, your website requires a login page with a username and password, you'll need that username and password to be stored in the session array so that you can access all parts of the website. But if you exit out of the browser without removing that important information from the session array, that information could be at risk since it's still lingering there. That's why there are a couple different methods to getting rid of part or all of the session variables.
 
 If you want to individually get rid of specific variables you can use `unset()`. Let's say we want to take our `$_SESSION["favActivity"]` variable out of the array. We would call `unset($_SESSION["favActivity"])`. That gets rid of that key and value and it can no longer be accessed!
 
 ![Individual Unset](individualunset.png)
 
-However, getting rid of our session variables in that way is not very effective. To clear your session array and unset every variable, you would need to use `session_unset()`. Calling this function applies it to all parts of the `$_SESSION` array and empties it. This is a great option if you only want to clear your array, but it will not end the session for you.
+However, getting rid of our session variables in that way is not very effective. To clear your session array and unset every variable, you would need to use `session_unset()`. Calling this function applies it to all parts of the `$_SESSION` array and empties it. This is a great option if you only want to clear your array, but it will not destroy the entire session for you.
 
 ![Clear Session Array](clearsession.png)
 
-To end the session the function `session_destroy()` is used. This does exactly what it says: it destroys the session completely. The session is ended and if you want to create new session variables and use them, it is necessary to start a new session. This ensures that no information lingers after the website is closed, and that a new session is opened every time the website is.
+To destroy the session data the function `session_destroy()` is used. This does exactly what it says: it destroys the data stored in the session completely. The session is ended but if you start up a session again, those variables will still be there! This function destroys the session but does not clear the variables out of the array.
 
-![Destroy Session](destroysession.png)
+![Destroy Session](destroysessionbetter.png)
 
-Now keep in mind, you do not need to use **all** these methods to achieve an empty session array or to destroy your array. I just did a couple different examples to show how they work. It is always best to destroy your session once you don't need your session variables anymore in order to prevent someone gaining access to the sensitive information in your session. There are some situations in which you would want your session data to be persistent, but that requires additional security measures that we won't cover in this tutorial. 
+In order to completely clear out information and get a fresh new session, it is necessary to call `session_unset($_SESSION)` and then destroy the session using `session_destroy()`. This is the only way to kill the session all together and keep sensitive data from hanging around in the server after the browser is closed. 
+
+![Unset Session and Destroy](unsetdestroy.png)
+
+There are some situations in which you would want your session data to be persistent, but that requires additional security measures that we won't cover in this tutorial. 
 
 
 
@@ -89,3 +93,5 @@ https://www.thoughtco.com/basic-php-sessions-2693797
 https://www.php.net/manual/en/reserved.variables.session.php
 
 https://www.php.net/manual/en/function.session-unset.php
+
+https://www.php.net/manual/en/function.session-destroy.php#:~:text=session_destroy()%20destroys%20all%20of,or%20unset%20the%20session%20cookie.&text=Cleanup%20%24_SESSION%20array%20rather,ID%20must%20also%20be%20unset.
