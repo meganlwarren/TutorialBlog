@@ -31,6 +31,7 @@ In PHP, a `$` indicates a variable, and with session variables it is also used, 
 We'll call the part `$_SESSION["yourVariable"]` the key of your variable, while `"value"` is the value you set your variable to.
 
 You can set your session variables right in those first PHP tags if you like!
+
 ![Setting Variables 1](setVariables1.png)
 
 In the code above we set two session variables. Since these are session variables they will always have the same values as long as the session is open, even if we reference them in another page of the website!
